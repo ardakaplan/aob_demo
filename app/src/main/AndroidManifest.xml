@@ -23,6 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name="com.ardakaplan.aob_demo.AOBBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ardakaplan.aob_demo.geniiListener" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

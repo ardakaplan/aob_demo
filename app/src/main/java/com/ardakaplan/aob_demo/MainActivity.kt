@@ -58,8 +58,20 @@ class MainActivity : AppCompatActivity() {
 
         launchIntent?.let {
 
+            val aobGeniiMessagingObject = AobGeniiMessagingObject(
+                Random().nextInt(10000),
+                "150106",
+                "23452342343",
+                Company.AYEDAS,
+                EnvironmentType.DIR,
+                AobGeniiMessagingObject.Type.STAND_UP,
+                AobGeniiMessagingObject.Trigger.AOB
+            )
+
+            val broadcastMessage = Gson().toJson(aobGeniiMessagingObject).toString()
+
             it.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            it.putExtra("DATA", "OPEN GENII DEMO")
+            it.putExtra(Constants.BROADCAST_DATA_KEY, broadcastMessage)
 
             startActivity(it)
         }
